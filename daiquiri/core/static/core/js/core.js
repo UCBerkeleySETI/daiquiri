@@ -1,6 +1,8 @@
 angular.module('core', ['ngResource', 'ngSanitize'])
 
-.config(['$httpProvider', '$interpolateProvider', '$resourceProvider', function($httpProvider, $interpolateProvider, $resourceProvider) {
+.config(['$httpProvider', '$interpolateProvider', '$resourceProvider', '$sceDelegateProvider', function($httpProvider, $interpolateProvider, $resourceProvider, $sceDelegateProvider) {
+
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://storage.googleapis.com/bldw_static/**']);
 
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
