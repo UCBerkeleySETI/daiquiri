@@ -31,6 +31,8 @@ ROOT_URLCONF = 'config.urls'
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 DATABASES = {
     'default': env.get_database('app'),
     'data': env.get_database('data'),
