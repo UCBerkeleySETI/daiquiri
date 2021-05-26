@@ -4,7 +4,7 @@ astropy==4.2.1
 celery~=4.3.0
 coverage~=4.5.4
 Django==3.2.3
-django-allauth~=0.40.0
+django-allauth~=0.44.0
 django-compressor~=2.3
 django-extensions~=2.2.1
 django-filter~=2.2.0
