@@ -83,10 +83,17 @@ ADDITIONAL_APPS = [
     'compressor',
     'widget_tweaks',
     'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # Replaced with the two below to fix https://github.com/pennersr/django-allauth/issues/2826
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    'daiquiri.core.apps.ModifiedAccountConfig',
+    'daiquiri.core.apps.ModifiedSocialAccountConfig',
     'rules'
 ]
+
+# To fix https://github.com/pennersr/django-allauth/issues/2853
+import allauth.app_settings
+allauth.app_settings.SOCIALACCOUNT_ENABLED = True
 
 MIDDLEWARE = [
     'daiquiri.core.middleware.MultipleProxyMiddleware',
