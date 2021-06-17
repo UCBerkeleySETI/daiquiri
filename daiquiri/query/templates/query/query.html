@@ -1,6 +1,5 @@
 {% extends 'core/wide.html' %}
 {% load static %}
-{% load compress %}
 {% load i18n %}
 {% load vendor_tags %}
 
@@ -13,15 +12,12 @@
     {% vendor 'moment' %}
     {% vendor 'Bokeh' %}
 
-    {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/browser.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/table.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/codemirror.scss' %}" />
 
     <link rel="stylesheet" type="text/x-scss" href="{% static 'query/css/query.scss' %}" />
-    {% endcompress css %}
 
-    {% compress js %}
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/multiCheckbox.js' %}" ></script>
@@ -43,7 +39,6 @@
     {% for form in settings.QUERY_FORMS %}
     <script type="text/javascript" src="{% static form.service %}" ></script>
     {% endfor %}
-    {% endcompress js %}
 {% endblock %}
 
 {% block wide %}

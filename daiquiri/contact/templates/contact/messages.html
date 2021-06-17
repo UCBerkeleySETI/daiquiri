@@ -1,7 +1,6 @@
 {% extends 'core/wide.html' %}
 {% load static %}
 {% load i18n %}
-{% load compress %}
 {% load vendor_tags %}
 
 {% block bodyargs %}ng-app="messages" ng-controller="MessagesController"{% endblock %}
@@ -10,12 +9,9 @@
     {% vendor 'angular' %}
     {% vendor 'ng-infinite-scroll' %}
 
-    {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/list.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'contact/css/messages.scss' %}" />
-    {% endcompress css %}
 
-    {% compress js %}
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/list.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>
@@ -24,7 +20,6 @@
     <script type="text/javascript" src="{% static 'core/js/formgroup.js' %}" ></script>
 
     <script type="text/javascript" src="{% static 'contact/js/messages.js' %}" ></script>
-    {% endcompress js %}
 {% endblock %}
 
 {% block wide %}

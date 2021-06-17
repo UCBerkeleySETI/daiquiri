@@ -1,7 +1,6 @@
 {% extends 'core/wide.html' %}
 {% load static %}
 {% load i18n %}
-{% load compress %}
 {% load vendor_tags %}
 
 {% block bodyargs %}
@@ -14,13 +13,10 @@
     {% vendor 'ng-infinite-scroll' %}
     {% vendor 'codemirror' %}
 
-    {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/list.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/codemirror.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'query/css/jobs.scss' %}" />
-    {% endcompress css %}
 
-    {% compress js %}
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/list.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>
@@ -30,7 +26,6 @@
 
     <script type="text/javascript" src="{% static 'query/js/apps/jobs.js' %}" ></script>
     <script type="text/javascript" src="{% static 'query/js/services/jobs.js' %}" ></script>
-    {% endcompress js %}
 {% endblock %}
 
 {% block wide %}

@@ -1,6 +1,5 @@
 {% extends 'core/wide.html' %}
 {% load static %}
-{% load compress %}
 {% load i18n %}
 {% load vendor_tags %}
 
@@ -12,13 +11,10 @@
     {% vendor 'codemirror' %}
     {% vendor 'moment' %}
 
-    {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/browser.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/codemirror.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'metadata/css/metadata.scss' %}" />
-    {% endcompress css %}
 
-    {% compress js %}
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/multiCheckbox.js' %}" ></script>
@@ -27,7 +23,6 @@
     <script type="text/javascript" src="{% static 'core/js/browser.js' %}" ></script>
 
     <script type="text/javascript" src="{% static 'metadata/js/metadata.js' %}" ></script>
-    {% endcompress js %}
 {% endblock %}
 
 {% block wide %}

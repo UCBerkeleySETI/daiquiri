@@ -1,6 +1,5 @@
 {% extends 'core/wide.html' %}
 {% load static %}
-{% load compress %}
 {% load i18n %}
 {% load vendor_tags %}
 
@@ -21,20 +20,16 @@
 {% block headextra %}
     {% vendor 'angular' %}
 
-    {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/browser.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/table.scss' %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static 'serve/css/table.scss' %}" />
-    {% endcompress css %}
 
-    {% compress js %}
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/byNumber.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/table.js' %}" ></script>
 
     <script type="text/javascript" src="{% static 'serve/js/table.js' %}" ></script>
-    {% endcompress js %}
 {% endblock %}
 
 {% block wide %}

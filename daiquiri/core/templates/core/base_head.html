@@ -1,5 +1,4 @@
 {% load static %}
-{% load compress %}
 {% load vendor_tags %}
 
 <title>{{ request.site.name }}</title>
@@ -19,8 +18,6 @@
 {% vendor 'bootstrap' %}
 {% vendor 'font-awesome' %}
 
-{% compress css %}
 <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/base.scss' %}" />
 <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/fonts.scss' %}" />
 <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/style.scss' %}" />
-{% endcompress %}
