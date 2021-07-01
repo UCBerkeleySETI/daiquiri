@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.timezone import now
 from django.views.generic import TemplateView
 
@@ -13,7 +13,7 @@ def contact(request):
 
     if request.method == 'POST':
         if 'cancel' in request.POST:
-            return render(request, 'core/home.html')
+            return redirect('/')
 
         if contact_form.is_valid():
 
