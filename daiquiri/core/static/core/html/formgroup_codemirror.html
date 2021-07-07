@@ -1,11 +1,11 @@
-<div class="form-group" ng-class="{'has-error': errors }">
-    <label class="control-label" for="{$ field $}" ng-bind-html="label"></label>
+<div class="row" ng-class="{'has-error': errors }">
+    <label class="fw-bold col-form-label" for="{$ field $}" ng-bind-html="label"></label>
 
     <textarea codemirror class="form-control" id="{$ id $}" ng-model="model" data-mode="{$ mode $}"/>
 
-    <p class="help-block" ng-show="help">{$ help $}</p>
+    <p class="form-text" ng-show="help">{$ help $}</p>
 
-    <ul class="help-block list-unstyled">
+    <ul class="form-text list-unstyled">
         <li ng-repeat="error in errors">{$ error $}</li>
     </ul>
 </div>

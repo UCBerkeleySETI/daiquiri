@@ -1,36 +1,37 @@
 <div class="daiquiri-browser row">
     <div ng-class="{
-            'col-sm-4': browser[browserId].columns.length === 3,
-            'col-sm-6': browser[browserId].columns.length === 2,
-            'col-sm-12': browser[browserId].columns.length === 1
-        }"
-        ng-repeat="column in browser[browserId].columns">
+                   'col-sm-4': browser[browserId].columns.length === 3,
+                   'col-sm-6': browser[browserId].columns.length === 2,
+                   'col-sm-12': browser[browserId].columns.length === 1
+                   }"
+         ng-repeat="column in browser[browserId].columns">
 
-        <ul class="daiquiri-browser-head nav nav-pills nav-stacked">
-            <li class="nav-header">
+        <div class="card daiquiri-browser-head">
+            <div class="card-header">
                 {$ column.name | uppercase $}
-            </li>
-        </ul>
+            </div>
+        </div>
 
-        <ul class="daiquiri-browser-head nav nav-pills nav-stacked"
+        <div class="card daiquiri-browser-head"
             ng-show="browser[browserId].filter">
-            <li class="nav-header">
+            <div class="card-header">
                 <input type="text" class="form-control" placeholder="Filter"
-                    ng-model="column.filter_string" />
-            </li>
-        </ul>
+                       ng-model="column.filter_string" />
+            </div>
+        </div>
 
-        <ul class="daiquiri-browser-body nav nav-pills nav-stacked">
-
-            <li ng-repeat="item in column.items | filter: column.filter_string"
-                ng-class="{ 'active': browser.isActive(browserId, $parent.$index, $index) }">
-                <a href=""
-                    ng-click="itemClicked(browserId, item, $parent.$index, $index);"
-                    ng-dblclick="itemDblClicked(browserId, item, $parent.$index, $index);">
-                    <i class="pull-right fa fa-chevron-right" ng-show="column.selected == $index"></i>
+        <ul class="daiquiri-browser-body list-group list-group-flush">
+            <a href=""
+               class="list-group-item-action"
+               ng-click="itemClicked(browserId, item, $parent.$index, $index);"
+               ng-repeat="item in column.items | filter: column.filter_string"
+               ng-dblclick="itemDblClicked(browserId, item, $parent.$index, $index);">
+                <li class="list-group-item"
+                    ng-class="{ 'active': browser.isActive(browserId, $parent.$index, $index) }">
                     {$ item.name $}
-                </a>
-            </li>
+                    <i class="pull-right fa fa-chevron-right" ng-show="column.selected == $index"></i>
+                </li>
+            </a>
         </ul>
     </div>
 </div>

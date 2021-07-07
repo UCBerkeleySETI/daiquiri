@@ -9,7 +9,7 @@
         {% url 'account_change_password' as password_url %}
         {% url 'account_email' as email_url %}
         {% blocktrans trimmed %}
-        Please enter your updated account information. You can change your password using the <a href="{{ password_url }}">password form</a> and update your e-mail using the <a href="{{ email_url }}">e-mail form</a>.
+            Please enter your updated account information. You can change your password using the <a href="{{ password_url }}">password form</a> and update your e-mail using the <a href="{{ email_url }}">e-mail form</a>.
         {% endblocktrans %}
     </p>
 
@@ -20,8 +20,9 @@
         {% include 'core/partials/form_fields.html' with form=user_form %}
         {% include 'core/partials/form_fields.html' with form=profile_form %}
 
-        <input type="submit" value="{% trans 'Update profile' %}" class="btn btn-primary" />
-        <input type="submit" name="cancel" value="{% trans 'Cancel' %}" class="btn btn-default" />
+        <button type="submit" class="btn btn-primary">
+            {% trans 'Update profile' %}
+        </button>
     </form>
 
 {% endblock %}

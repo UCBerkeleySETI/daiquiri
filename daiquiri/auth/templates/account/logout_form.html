@@ -1,10 +1,10 @@
 {% load i18n %}
 
-    {% if settings.ACCOUNT_LOGOUT_ON_GET %}
+{% if settings.ACCOUNT_LOGOUT_ON_GET %}
 
     <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
 
-    {% else %}
+{% else %}
 
     <form class="logout-form" action="{% url 'account_logout' %}" method="POST">
         {% csrf_token %}
@@ -13,4 +13,4 @@
         </button>
     </form>
 
-    {% endif %}
+{% endif %}

@@ -9,13 +9,13 @@
 
     <form method="post" action="{% url 'account_token' %}" novalidate>
         {% csrf_token %}
-        <input type="submit" name="regenerate" value="{% trans 'Regenerate token' %}" class="btn btn-default" />
+        <input type="submit" name="regenerate" value="{% trans 'Regenerate token' %}" class="btn btn-outline-secondary" />
     </form>
 
     <p>
         {% trans 'You can use this token in HTTP requests by using the <code>Authorization</code> Header:' %}
     </p>
 
-    <pre>Authorization: Token {{ token }}</pre>
+    <pre class="bg-light p-2 border">Authorization: Token {{ token }}</pre>
 
 {% endblock %}

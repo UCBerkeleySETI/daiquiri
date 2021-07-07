@@ -1,9 +1,9 @@
 {% load i18n %}
 
 <p>
-   {% blocktrans %}
-   Place your SQL statement directly in the text area below and submit your request using the button. You can use the dropdown menus to get information about the database, to query external services or to access example queries.
-   {% endblocktrans %}
+    {% blocktrans %}
+    Place your SQL statement directly in the text area below and submit your request using the button. You can use the dropdown menus to get information about the database, to query external services or to access example queries.
+    {% endblocktrans %}
 </p>
 
 <p>
@@ -28,6 +28,7 @@
 </div>
 
 <formgroup
+    class="row mt-3"
     data-type="codemirror"
     data-label="{% trans 'SQL query' %}"
     data-model="service.forms.sql.values.query"
@@ -35,11 +36,11 @@
     data-mode="text/x-sql">
 </formgroup>
 
-<div class="row">
+<div class="row mt-2 mb-3">
     <formgroup
         class="col-md-4"
         data-type="text"
-        data-label="{% trans 'Table name' %}"
+        data-label="{% trans 'Results table name' %}"
         data-model="service.forms.sql.values.table_name"
         data-errors="service.forms.sql.errors.table_name">
     </formgroup>
@@ -50,40 +51,21 @@
         data-model="service.forms.sql.values.run_id"
         data-errors="service.forms.sql.errors.run_id">
     </formgroup>
-    <formgroup
-        class="col-md-3"
-        data-type="select"
-        data-label="{% trans 'Query language' %}"
-        data-model="service.forms.sql.values.query_language"
-        data-errors="service.forms.sql.errors.query_language"
-        data-options="service.query_languages"
-        data-options-label="text">
-    </formgroup>
-    <formgroup
-        class="col-md-3"
-        data-type="select"
-        data-label="{% trans 'Queue' %}"
-        data-model="service.active_queue"
-        data-options="service.queues"
-        data-options-label="text">
-    </formgroup>
 </div>
 
-<div class="form-group">
-    <button class="btn btn-primary" ng-click="service.forms.sql.submit()">
-        {% trans 'Submit new SQL Query' %} <submitting />
+<div class="row">
+    <button type="button" class="btn btn-primary text-nowrap col-md-2" ng-click="service.forms.sql.submit()">
+        {% trans 'Submit query' %} <submitting />
     </button>
 
-    <div class="pull-right">
-        <button class="btn btn-default" ng-click="service.forms.sql.clear_query()">
-            {% trans 'Clear input window' %}
-        </button>
-    </div>
+    <button type="button" class="btn btn-secondary text-nowrap col-md-2 ms-auto" ng-click="service.forms.sql.clear_query()">
+        {% trans 'Clear input window' %}
+    </button>
 </div>
 
 <p class="text-danger" ng-show="service.forms.sql.errors.detail">
     {$ service.forms.sql.errors.detail $}
 </p>
 <p class="text-danger" ng-show="service.forms.sql.errors.server_error">
-    {% trans 'There has been an error on the server. Please contact the maintainers of this site, if the problem persists.' %}
+    {% trans 'There has been an error on the server. Please contact the maintainers of this site if the problem persists.' %}
 </p>

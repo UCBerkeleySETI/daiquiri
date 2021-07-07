@@ -16,8 +16,11 @@
 
             {% include 'core/partials/form_fields.html' %}
 
-            <input type="submit" value="{% trans 'Send message' %}" class="btn {{ submit_danger|yesno:'btn-danger,btn-primary' }}" />
-            <input type="submit" name="cancel" value="{% trans 'Cancel' %}" class="btn btn-default" />
+            <div>
+                <button type="submit" class="btn {{ submit_danger|yesno:'btn-danger,btn-primary' }}">
+                    {% trans 'Send message' %}
+                </button>
+            </div>
         </form>
     {% else %}
         {% trans "Please log in to be able to fill the contact form." %}

@@ -1,22 +1,22 @@
 {% load i18n %}
 
 <div ng-show="service.status">
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="card mt-1 mb-4">
+        <div class="card-header">
             {% trans 'Database status' %}
         </div>
-        <div class="panel-body">
-            <p ng-show="service.status.queued_jobs == 1">
+        <div class="card-body">
+            <p class="card-text" ng-show="service.status.queued_jobs == 1">
                 {% blocktrans %}
                 There is one job in the queue.
                 {% endblocktrans %}
             </p>
-            <p ng-show="service.status.queued_jobs > 1">
+            <p class="card-text" ng-show="service.status.queued_jobs > 1">
                 {% blocktrans with queued_jobs='{$ service.status.queued_jobs $}' %}
                 There are {{ queued_jobs }} jobs in the queue.
                 {% endblocktrans %}
             </p>
-            <p ng-show="service.status.guest">
+            <p class="card-text" ng-show="service.status.guest">
                 {% url 'account_signup' as register_url %}
                 {% blocktrans %}
                 You are using the guest user. For a personal account, please sign up <a href="{{ register_url }}">here</a>.
@@ -24,17 +24,17 @@
             </p>
 
             <div ng-class="{'text-danger': service.status.size > service.status.quota}">
-                <p ng-show="service.status.guest">
+                <p class="card-text" ng-show="service.status.guest">
                     {% blocktrans with size='{$ service.status.size | bytes $}' quota='{$ service.status.quota | bytes $}' %}
                     The guest user is using {{ size }} of its quota of {{ quota }}.
                     {% endblocktrans %}
                 </p>
-                <p ng-hide="service.status.guest">
+                <p class="card-text" ng-hide="service.status.guest">
                     {% blocktrans with size='{$ service.status.size | bytes $}' quota='{$ service.status.quota | bytes $}' %}
                     You are using {{ size }} of your quota of {{ quota }}.
                     {% endblocktrans %}
                 </p>
-                <p ng-show="service.status.size > service.status.quota">
+                <p class="card-text" ng-show="service.status.size > service.status.quota">
                     {% trans 'The Quota is exceeded. Please remove some  jobs.' %}
                 </p>
             </div>
@@ -43,46 +43,47 @@
         </div>
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="card mb-4">
+        <div class="card-header">
             {% trans 'New query job' %}
         </div>
-        <ul class="list-group">
+        <ul class="list-group list-group-flush">
             {% for form in settings.QUERY_FORMS %}
 
-            <li class="list-group-item list-group-link">
-                <a href=""
-                    ng-click="service.forms['{{ form.key }}'].activate()"
-                    ng-class="{active: service.form == '{{ form.key }}'}">
+            <a href=""
+               class="list-group-item-action"
+               ng-click="service.forms['{{ form.key }}'].activate()"
+               ng-class="{active: service.form == '{{ form.key }}'}">
+                <li class="list-group-item">
                     {{ form.label }}
-                </a>
-            </li>
+                </li>
+            </a>
 
             {% endfor %}
         </ul>
     </div>
 
-    <div class="panel panel-default daiquiri-query-joblist">
-        <div class="panel-heading">
+    <div class="card daiquiri-query-joblist">
+        <div class="card-header">
             {% trans 'Job list' %}
         </div>
 
-        <ul class="list-group daiquiri-query-joblist-no-jobs" ng-if="!service.jobs.length">
+        <ul class="list-group list-group-flush daiquiri-query-joblist-no-jobs" ng-if="!service.jobs.length">
             <li class="list-group-item">
                 {% trans 'No jobs found.' %}
             </li>
         </ul>
 
-        <ul class="list-group daiquiri-query-joblist-jobs" ng-if="service.jobs.length">
+        <ul class="list-group list-group-flush daiquiri-query-joblist-jobs" ng-if="service.jobs.length">
             <div class="daiquiri-query-joblist-group" ng-repeat="run_id in service.run_ids">
-                <li class="list-group-item list-group-link" ng-if="service.run_ids[0] !== ''">
-                    <a href="" ng-click="service.show[run_id] = !service.show[run_id]"
-                        class="daiquiri-query-joblist-run-id">
+                <li class="list-group-item" ng-if="service.run_ids[0] !== ''">
+                    <a class="list-group-item-action" href="" ng-click="service.show[run_id] = !service.show[run_id]"
+                       class="daiquiri-query-joblist-run-id">
                         <div class="pull-right">
                             <i class="fa fa-folder-o" title="{% trans 'Open group' %}"
-                                ng-hide="service.show[run_id]"></i>
+                               ng-hide="service.show[run_id]"></i>
                             <i class="fa fa-folder-open-o" title="{% trans 'Close group' %}"
-                                ng-show="service.show[run_id]"></i>
+                               ng-show="service.show[run_id]"></i>
                         </div>
                         <div>
                             <span ng-show="run_id">{% trans 'Run id' %}: {$ run_id $}</span>
@@ -91,10 +92,10 @@
                     </a>
                 </li>
 
-                <li class="list-group-item list-group-link"
+                <li class="list-group-item"
                     ng-repeat="job in service.jobs | orderBy: '-creation_time'"
                     ng-if="job.run_id == run_id && service.show[run_id]">
-                    <a href="" ng-click="service.activate_job(job)" ng-class="{active: service.job.id == job.id}">
+                    <a class="list-group-item-action" href="" ng-click="service.activate_job(job)" ng-class="{active: service.job.id == job.id}">
                         <div class="pull-right">
                             <i class="fa fa-pause" title="PENDING" ng-show="job.phase == 'PENDING'"></i>
                             <i class="fa fa-spinner fa-spin" title="QUEUED" ng-show="job.phase == 'QUEUED'"></i>
@@ -114,7 +115,7 @@
         </ul>
 
         {% if user.is_authenticated %}
-        <div class="panel-footer">
+        <div class="card-footer">
             <a href="{% url 'query:jobs' %}" target="_blank">
                 {% trans 'View verbose job list' %}
             </a>
