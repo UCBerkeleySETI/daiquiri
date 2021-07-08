@@ -1,13 +1,14 @@
-{% load static %}
-{% load i18n %}
+{% load i18n static %}
 
-<div class="panel panel-default panel-license">
-    <div class="panel-heading">{% trans 'License' %}</div>
-    <div class="panel-body">
+<div class="card">
+    <div class="card-header">
+        {% trans 'License' %}
+    </div>
+    <div class="card-body">
         <p class="text-center">
             <img src="{% static 'metadata/img' %}/{{ license | lower }}.png" />
         </p>
-        <p>
+        <p class="card-text">
             {% blocktrans %}
             This {{ dataset }} is published under the <a href="{{ license_url }}" target="_blank">{{ license_label }}</a>.
             {% endblocktrans %}

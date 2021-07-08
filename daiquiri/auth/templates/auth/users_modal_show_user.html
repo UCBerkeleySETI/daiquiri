@@ -1,80 +1,79 @@
 {% load i18n %}
 
-    <div class="modal" id="show-user-modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
+<div class="modal" id="show-user-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{% trans 'Close' %}">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="update-user-modal-title">
-                        {$ service.current_row.user.first_name $} {$ service.current_row.user.last_name $}
-                    </h4>
-                </div>
+            <div class="modal-header">
+                <h4 class="modal-title" id="update-user-modal-title">
+                    {$ service.current_row.user.first_name $} {$ service.current_row.user.last_name $}
+                </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}">
+                </button>
+            </div>
 
-                <div class="modal-body">
+            <div class="modal-body">
 
-                    <dl>
-                        <dt>{% trans 'Username' %}</dt>
-                        <dd>{$ service.current_row.user.username $}</dd>
-                    </dl>
-                    <dl>
-                        <dt>{% trans 'Email' %}</dt>
-                        <dd>{$ service.current_row.user.email $}</dd>
-                    </dl>
+                <dl>
+                    <dt>{% trans 'Username' %}</dt>
+                    <dd>{$ service.current_row.user.username $}</dd>
+                </dl>
+                <dl>
+                    <dt>{% trans 'Email' %}</dt>
+                    <dd>{$ service.current_row.user.email $}</dd>
+                </dl>
 
-                    <div class="modal-seperator"></div>
+                <div class="modal-separator"></div>
 
-                    <dl>
-                        <dt>{% trans 'First name' %}</dt>
-                        <dd>{$ service.current_row.user.first_name $}</dd>
-                    </dl>
-                    <dl>
-                        <dt>{% trans 'Last name' %}</dt>
-                        <dd>{$ service.current_row.user.last_name $}</dd>
-                    </dl>
+                <dl>
+                    <dt>{% trans 'First name' %}</dt>
+                    <dd>{$ service.current_row.user.first_name $}</dd>
+                </dl>
+                <dl>
+                    <dt>{% trans 'Last name' %}</dt>
+                    <dd>{$ service.current_row.user.last_name $}</dd>
+                </dl>
 
-{% if detail_keys %}
-                    <div class="modal-seperator"></div>
+                {% if detail_keys %}
+                    <div class="modal-separator"></div>
 
-{% for detail_key in detail_keys %}
+                    {% for detail_key in detail_keys %}
 
-                    <dl>
-                        <dt>{{ detail_key.label }}</dt>
-                        <dd>{$ service.current_row.details['{{ detail_key.key }}'] $}</dd>
-                    </dl>
+                        <dl>
+                            <dt>{{ detail_key.label }}</dt>
+                            <dd>{$ service.current_row.details['{{ detail_key.key }}'] $}</dd>
+                        </dl>
 
-{% endfor %}
+                    {% endfor %}
 
-{% endif %}
+                {% endif %}
 
-                    <div ng-show="service.current_row.attributes" class="modal-seperator"></div>
+                <div ng-show="service.current_row.attributes" class="modal-separator"></div>
 
-                    <dl ng-repeat="(detail_key, detail_value) in service.current_row.attributes">
-                        <dt>{$ detail_key $}</dt>
-                        <dd>{$ detail_value $}</dd>
-                    </dl>
+                <dl ng-repeat="(detail_key, detail_value) in service.current_row.attributes">
+                    <dt>{$ detail_key $}</dt>
+                    <dd>{$ detail_value $}</dd>
+                </dl>
 
-                    <div class="modal-seperator"></div>
+                <div class="modal-separator"></div>
 
-                    <dl>
-                        <dt>{% trans 'Date joined' %}</dt>
-                        <dd>{$ service.current_row.user.date_joined | date:'medium' $}</dd>
-                    </dl>
-                    <dl>
-                        <dt>{% trans 'Last login' %}</dt>
-                        <dd ng-show="service.current_row.user.last_login">{$ service.current_row.user.last_login | date:'medium' $}</dd>
-                        <dd ng-hide="service.current_row.user.last_login">{% trans 'Never' %}</dd>
-                    </dl>
+                <dl>
+                    <dt>{% trans 'Date joined' %}</dt>
+                    <dd>{$ service.current_row.user.date_joined | date:'medium' $}</dd>
+                </dl>
+                <dl>
+                    <dt>{% trans 'Last login' %}</dt>
+                    <dd ng-show="service.current_row.user.last_login">{$ service.current_row.user.last_login | date:'medium' $}</dd>
+                    <dd ng-hide="service.current_row.user.last_login">{% trans 'Never' %}</dd>
+                </dl>
 
-                </div>
+            </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        {% trans 'Close' %}
-                    </button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    {% trans 'Close' %}
+                </button>
             </div>
         </div>
     </div>
+</div>

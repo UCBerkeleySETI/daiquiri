@@ -8,7 +8,7 @@
     {% url 'account_email' as email_url %}
 
     <p>
-        {% blocktrans %}This part of the site requires us to verify that you are who you claim to be. For this purpose, we require that you verify ownership of your email address. {% endblocktrans %}
+        {% blocktrans %}This part of the site requires that you have verified your e-mail address.{% endblocktrans %}
     </p>
 
     <p>
@@ -16,7 +16,7 @@
     </p>
 
     <p>
-        {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
+        {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail address</a>.{% endblocktrans %}
     </p>
 
 {% endblock %}

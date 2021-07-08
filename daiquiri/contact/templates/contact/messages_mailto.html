@@ -1,7 +1,7 @@
 {% load i18n %}mailto:{$ row.email $}?subject=[{{ request.site.name }}] Re: {$ row.subject $}&body=
 %0A%0A
 {% blocktrans with author='{$ row.author $}' date='{$ row.created | date:short $}' trimmed %}
-On {{ date }}, {{ author }} wrote:
+    On {{ date }}, {{ author }} wrote:
 {% endblocktrans %}
 %0A
 > {$ row.message $}

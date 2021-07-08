@@ -4,22 +4,21 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
                 <h4 class="modal-title">
                     {% trans 'Job parameters' %}
                 </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
             </div>
 
             <div class="modal-body">
                 <dl class="dl-horizontal">
                     <dt>{% trans 'Job status' %}</dt>
                     <dd ng-class="{
-                        'text-success': service.job.phase == 'COMPLETED',
-                        'text-warning': service.job.phase == 'TIMEOUT',
-                        'text-danger': service.job.phase == 'ERROR',
-                        'text-info': service.job.phase == 'QUEUED'}">
+                                  'text-success': service.job.phase == 'COMPLETED',
+                                  'text-warning': service.job.phase == 'TIMEOUT',
+                                  'text-danger': service.job.phase == 'ERROR',
+                                  'text-info': service.job.phase == 'QUEUED'}">
                         {$ (service.phases|filter: {'id': service.job.phase})[0].text $}
                     </dd>
 
@@ -28,7 +27,7 @@
                         <dd class="text-danger">{$ service.job.error_summary $}</dd>
                     </div>
 
-                    <div class="modal-seperator"></div>
+                    <div class="modal-separator"></div>
 
                     <dt>{% trans 'Internal job id' %}</dt>
                     <dd>{$ service.job.id $}</dd>
@@ -39,7 +38,7 @@
                     <dt>{% trans 'Table name' %}</dt>
                     <dd>{$ service.job.table_name $}</dd>
 
-                    <div class="modal-seperator"></div>
+                    <div class="modal-separator"></div>
 
                     <dt>{% trans 'Time submitted' %}</dt>
                     <dd>{$ service.job.creation_time | date:'medium' $}</dd>
@@ -67,7 +66,7 @@
                         <dd>{$ service.job.size | bytes $}</dd>
                     </div>
 
-                    <div class="modal-seperator"></div>
+                    <div class="modal-separator"></div>
 
                     <dt>{% trans 'Query' %}</dt>
                     <dd>
@@ -93,7 +92,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     {% trans 'Close' %}
                 </button>
             </div>

@@ -1,7 +1,5 @@
 {% extends 'core/wide.html' %}
-{% load static %}
-{% load i18n %}
-{% load vendor_tags %}
+{% load i18n static vendor_tags %}
 
 {% block bodyargs %}
     ng-app="jobs"
@@ -62,8 +60,8 @@
                         <strong>{% trans 'Filter phases' %}:</strong>
                         <label ng-repeat="phase in service.phases">
                             <input type="checkbox" autocomplete="off"
-                                ng-model="service.selected[phase.id]"
-                                ng-change="service.reload();">
+                                   ng-model="service.selected[phase.id]"
+                                   ng-change="service.reload();">
                             {$ phase.text $}
                         </label>
                     </div>
@@ -88,29 +86,29 @@
                             <td>{$ row.run_id $}</td>
                             <td>{$ row.table_name $}</td>
                             <td ng-class="{
-                                'text-success': row.phase == 'COMPLETED',
-                                'text-warning': row.phase == 'TIMEOUT',
-                                'text-danger': row.phase == 'ERROR',
-                                'text-info': row.phase == 'QUEUED'
-                            }">
+                                          'text-success': row.phase == 'COMPLETED',
+                                          'text-warning': row.phase == 'TIMEOUT',
+                                          'text-danger': row.phase == 'ERROR',
+                                          'text-info': row.phase == 'QUEUED'
+                                          }">
                                 {$ service.phase_map[row.phase] $}
                             </td>
                             <td>{$ row.creation_time | date:'medium' $}</td>
                             <td class="text-right list-table-options">
                                 <a href="" class="fa fa-eye" title="{% trans 'Show job' %}"
-                                    ng-click="service.modal('show-job-modal', $index)">
+                                   ng-click="service.modal('show-job-modal', $index)">
                                 </a>
                                 <a href="" class="fa fa-pencil" title="{% trans 'Update job' %}"
-                                    ng-click="service.modal('update-job-modal', $index)"
-                                    ng-show="row.phase == 'COMPLETED'">
+                                   ng-click="service.modal('update-job-modal', $index)"
+                                   ng-show="row.phase == 'COMPLETED'">
                                 </a>
                                 <a href="{% url 'query:query' %}" class="fa fa-repeat" target="_blank"
-                                    title="{% trans 'Open new query form with this query' %}"
-                                    ng-click="service.copy_query(row.id)">
+                                   title="{% trans 'Open new query form with this query' %}"
+                                   ng-click="service.copy_query(row.id)">
                                 </a>
                                 <a href="" class="fa fa-remove" title="{% trans 'Archive job' %}"
-                                    ng-click="service.modal('archive-job-modal', $index)"
-                                    ng-show="row.phase != 'ARCHIVED'">
+                                   ng-click="service.modal('archive-job-modal', $index)"
+                                   ng-show="row.phase != 'ARCHIVED'">
                                 </a>
                             </td>
                         </tr>

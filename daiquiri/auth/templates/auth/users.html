@@ -33,9 +33,9 @@
                                id="table-pager-search-input"
                                placeholder="{% trans 'Search entries' %}"
                                type="text" ng-model="service.list.search_string">
-                        <a href="" class="input-group-addon" ng-click="service.list.search()">
+                        <button class="btn btn-outline-secondary" type="button" ng-click="service.list.search()">
                             <span class="fa fa-search"></span>
-                        </a>
+                        </button>
                     </div>
                 </form>
 
@@ -45,7 +45,9 @@
                     </p>
                     <ul class="pagination pull-right">
                         <li>
-                            <a href="" ng-click="service.list.reset()">{% trans 'Reset' %}</a>
+                            <button class="btn btn-outline-secondary" type="button" ng-click="service.list.reset()">
+                                {% trans 'Reset' %}
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -105,7 +107,7 @@
                                     {$ group.name $}{$ $last ? '' : ', ' $}
                                 </span>
                             </td>
-                            <td class="text-right options">
+                            <td class="text-end">
                                 {% include 'auth/users_options.html' %}
                             </td>
                         </tr>

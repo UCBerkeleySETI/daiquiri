@@ -1,14 +1,14 @@
 <div class="form-group" ng-class="{'has-error': errors }">
-    <div class="radio" ng-repeat="option in options">
-        <label>
-            <input type="radio" ng-model="$parent.model" ng-value="option[optionsId]" />
+    <div class="form-check" ng-repeat="option in options">
+        <input id="{$ id $}-option-{$ option[optionsId] $}" type="radio" class="form-check-input" ng-model="$parent.model" ng-value="option[optionsId]">
+        <label class="form-check-label" for="{$ id $}-option-{$ option[optionsId] $}">
             <span>{$ option[optionsLabel] $}</span>
         </label>
     </div>
 
-    <p class="help-block" ng-show="help">{$ help $}</p>
+    <p class="form-text" ng-show="help">{$ help $}</p>
 
-    <ul class="help-block list-unstyled">
+    <ul class="form-text list-unstyled">
         <li ng-repeat="error in errors">{$ error $}</li>
     </ul>
 </div>

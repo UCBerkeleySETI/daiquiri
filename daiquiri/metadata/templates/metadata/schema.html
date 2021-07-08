@@ -1,56 +1,53 @@
 {% extends 'core/page.html' %}
-{% load i18n %}
-{% load static %}
-{% load core_tags %}
-{% load metadata_tags %}
+{% load core_tags i18n metadata_tags static %}
 
 {% block page %}
 
     <h1 class="hide-overflow">
         {% if schema.title %}
-        {{ schema.title }} ({{ schema }})
+            {{ schema.title }} ({{ schema }})
         {% else %}
-        {{ schema }}
+            {{ schema }}
         {% endif %}
     </h1>
 
     {% if schema.long_description %}
 
-    <h2>Description</h2>
-    <p>{{ schema.long_description | markdown }}</p>
+        <h2>Description</h2>
+        <p>{{ schema.long_description | markdown }}</p>
 
     {% elif schema.description %}
 
-    <h2>Description</h2>
-    <p>{{ schema.description | markdown }}</p>
+        <h2>Description</h2>
+        <p>{{ schema.description | markdown }}</p>
 
     {% endif %}
 
     {% if schema.attribution %}
-    <h2>Attribution</h2>
+        <h2>Attribution</h2>
 
-    {{ schema.attribution | markdown }}
+        {{ schema.attribution | markdown }}
     {% endif %}
 
     <h2>{% trans 'Tables' %}</h2>
 
     <ul class="list-unstyled">
         {% for table in tables %}
-        <li>
-            <h4>
-                <a href="{% url 'metadata:table' schema.name table.name %}">
-                    {% if table.title %}
-                    {{ table.title }} ({{ table }})
-                    {% else %}
-                    {{ table }}
-                    {% endif %}
-                </a>
-            </h4>
+            <li>
+                <h4>
+                    <a href="{% url 'metadata:table' schema.name table.name %}">
+                        {% if table.title %}
+                            {{ table.title }} ({{ table }})
+                        {% else %}
+                            {{ table }}
+                        {% endif %}
+                    </a>
+                </h4>
 
-            {% if table.description %}
-            {{ table.description }}
-            {% endif %}
-        </li>
+                {% if table.description %}
+                    {{ table.description }}
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
 
@@ -61,11 +58,11 @@
     {% access_panel schema _('schema') %}
 
     {% if schema.doi %}
-    {% doi_panel schema.doi _('schema') %}
+        {% doi_panel schema.doi _('schema') %}
     {% endif %}
 
     {% if schema.license %}
-    {% license_panel schema.license %}
+        {% license_panel schema.license %}
     {% endif %}
 
 {% endblock %}

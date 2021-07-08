@@ -1,7 +1,5 @@
 {% extends 'core/wide.html' %}
-{% load static %}
-{% load i18n %}
-{% load vendor_tags %}
+{% load i18n static vendor_tags %}
 
 {% block bodyargs %}ng-app="messages" ng-controller="MessagesController"{% endblock %}
 
@@ -34,9 +32,9 @@
                                id="table-pager-search-input"
                                placeholder="{% trans 'Search entries' %}"
                                type="text" ng-model="service.list.search_string">
-                        <a href="" class="input-group-addon" ng-click="service.list.search()">
+                        <button class="btn btn-outline-secondary" type="button" ng-click="service.list.search()">
                             <span class="fa fa-search"></span>
-                        </a>
+                        </button>
                     </div>
                 </form>
                 <div class="col-sm-6">
@@ -45,15 +43,19 @@
                     </p>
                     <ul class="pagination pull-right">
                         <li>
-                            <a href="" ng-click="service.list.reset()">{% trans 'Reset' %}</a>
+                            <button class="btn btn-outline-secondary" type="button" ng-click="service.list.reset()">
+                                {% trans 'Reset' %}
+                            </button>
                         </li>
                     </ul>
                     <ul class="pagination pull-right">
                         <li>
-                            <a href="" ng-click="service.toggleSpam()">
-                                <span ng-show="!service.list.params.spam">{% trans 'Show spam' %}</span>
-                                <span ng-show="service.list.params.spam">{% trans 'Hide spam' %}</span>
-                            </a>
+                            <button class="btn btn-outline-secondary" type="button" ng-click="service.toggleSpam()" ng-show="!service.list.params.spam">
+                                {% trans 'Show spam' %}
+                            </button>
+                            <button class="btn btn-outline-secondary" type="button" ng-click="service.toggleSpam()" ng-show="service.list.params.spam">
+                                {% trans 'Hide spam' %}
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -100,7 +102,7 @@
                             <td>
                                 {$ row.status_label $}
                             </td>
-                            <td class="text-right options">
+                            <td class="text-end">
                                 {% include 'contact/messages_options.html' %}
                             </td>
                         </tr>

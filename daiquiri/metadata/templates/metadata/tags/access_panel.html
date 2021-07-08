@@ -1,13 +1,15 @@
 {% load i18n %}
 
-<div class="panel panel-default panel-access">
-    <div class="panel-heading">{% trans 'Access' %}</div>
-    <div class="panel-body">
-        <p>
+<div class="card">
+    <div class="card-header">
+        {% trans 'Access' %}
+    </div>
+    <div class="card-body">
+        <p class="card-text">
             {% url 'query:query' as query_url %}
             {% blocktrans %}
-            You can access this {{ dataset }} using the <a href="{{ query_url }}">query interface</a> and download the results afterwards.
+                You can access this {{ dataset }} using the <a href="{{ query_url }}">query interface</a> and download the results afterwards.
             {% endblocktrans %}
-        <p>
+        </p>
     </div>
 </div>

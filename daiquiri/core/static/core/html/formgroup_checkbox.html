@@ -1,16 +1,14 @@
 <div class="row" ng-class="{'has-error': errors }">
     <div class="form-check">
-        <label>
-            <input id="{$ id $}"
-                   type="checkbox"
-                   ng-model="model"/>
+        <input id="{$ id $}" type="checkbox" ng-model="model" class="form-check-input">
+        <label class="form-check-label" for="{$ id $}">
             <span ng-bind-html="label"></span>
         </label>
     </div>
 
-    <p class="help-block" ng-show="help">{$ help $}</p>
+    <p class="form-text" ng-show="help">{$ help $}</p>
 
-    <ul class="help-block list-unstyled">
+    <ul class="form-text list-unstyled">
         <li ng-repeat="error in errors">{$ error $}</li>
     </ul>
 </div>
