@@ -4,34 +4,34 @@
     On this page, you can find an overview about a submitted query job. For a table view of the results, the plotting tool, and to access the download form, please use the tabs at the top of the page.
 </p>
 
-<div class="panel panel-default" ng-show="service.job.query">
-    <div class="panel-heading">
+<div class="card" ng-show="service.job.query">
+    <div class="card-header">
         {% trans 'Query' %}
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="cm-s-default" id="query">
             {$ service.job.query $}
         </div>
     </div>
-    <div class="panel-footer">
+    <div class="card-footer">
         <a href="" ng-click="service.forms.sql.copy_query(service.job.query_language, service.job.query)">
             {% trans 'Open new query form with this query' %}
         </a>
     </div>
 </div>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         {% trans 'Job parameters' %}
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <dl class="dl-horizontal">
             <dt>{% trans 'Job status' %}</dt>
             <dd ng-class="{
-                'text-success': service.job.phase == 'COMPLETED',
-                'text-warning': service.job.phase == 'TIMEOUT',
-                'text-danger': service.job.phase == 'ERROR',
-                'text-info': service.job.phase == 'QUEUED'}">
+                          'text-success': service.job.phase == 'COMPLETED',
+                          'text-warning': service.job.phase == 'TIMEOUT',
+                          'text-danger': service.job.phase == 'ERROR',
+                          'text-info': service.job.phase == 'QUEUED'}">
                 {$ (service.phases|filter: {'id': service.job.phase})[0].text $}
             </dd>
 
@@ -84,7 +84,7 @@
             </div>
         </dl>
     </div>
-    <div class="panel-footer">
+    <div class="card-footer">
         <div ng-show="service.job.phase == 'COMPLETED'">
             <a href="" ng-click="service.modal('update-job-modal')">
                 {% trans 'Rename the job\'s result table or run id' %}
@@ -103,22 +103,22 @@
     </div>
 </div>
 
-<div class="panel panel-default" ng-show="service.job.native_query">
-    <div class="panel-heading">
+<div class="card" ng-show="service.job.native_query">
+    <div class="card-header">
         {% trans 'Native query' %}
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="cm-s-default" id="native-query">
             {$ service.job.native_query $}
         </div>
     </div>
 </div>
 
-<div class="panel panel-default" ng-show="service.job.actual_query">
-    <div class="panel-heading">
+<div class="card" ng-show="service.job.actual_query">
+    <div class="card-header">
         {% trans 'Actual query' %}
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="cm-s-default" id="actual-query">
             {$ service.job.actual_query $}
         </div>

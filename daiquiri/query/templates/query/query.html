@@ -1,7 +1,5 @@
 {% extends 'core/wide.html' %}
-{% load static %}
-{% load i18n %}
-{% load vendor_tags %}
+{% load i18n static vendor_tags %}
 
 {% block bodyargs %}ng-app="query" ng-controller="QueryController"{% endblock %}
 
@@ -33,11 +31,11 @@
     <script type="text/javascript" src="{% static 'query/js/services/download.js' %}" ></script>
 
     {% for dropdown in settings.QUERY_DROPDOWNS %}
-    <script type="text/javascript" src="{% static dropdown.service %}" ></script>
+        <script type="text/javascript" src="{% static dropdown.service %}" ></script>
     {% endfor %}
 
     {% for form in settings.QUERY_FORMS %}
-    <script type="text/javascript" src="{% static form.service %}" ></script>
+        <script type="text/javascript" src="{% static form.service %}" ></script>
     {% endfor %}
 {% endblock %}
 
@@ -101,8 +99,8 @@
         </div>
     </div>
 
-{% include 'query/query_modal_update_job.html' %}
-{% include 'query/query_modal_abort_job.html' %}
-{% include 'query/query_modal_archive_job.html' %}
+    {% include 'query/query_modal_update_job.html' %}
+    {% include 'query/query_modal_abort_job.html' %}
+    {% include 'query/query_modal_archive_job.html' %}
 
 {% endblock %}

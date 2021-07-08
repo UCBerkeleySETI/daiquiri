@@ -1,19 +1,17 @@
 {% extends 'core/wide.html' %}
-{% load static %}
-{% load i18n %}
-{% load vendor_tags %}
+{% load i18n static vendor_tags %}
 
 {% block bodyargs %}
     ng-app="table"
     ng-controller="TableController"
     ng-init="service.table.init({
-        rows_url: 'serve/api/rows/',
-        columns_url: 'serve/api/columns/',
-        files_url: 'files/api/files/',
-        params: {
-            schema: '{{ schema }}',
-            table: '{{ table }}'
-        }
+    rows_url: 'serve/api/rows/',
+    columns_url: 'serve/api/columns/',
+    files_url: 'files/api/files/',
+    params: {
+    schema: '{{ schema }}',
+    table: '{{ table }}'
+    }
     })"
 {% endblock %}
 
@@ -22,7 +20,6 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/browser.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/table.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'serve/css/table.css' %}" />
 
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>

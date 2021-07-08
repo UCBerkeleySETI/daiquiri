@@ -7,16 +7,16 @@
     ng-app="archive"
     ng-controller="ArchiveController"
     ng-init="service.table.init({
-        rows_url: 'archive/api/rows/',
-        columns_url: 'archive/api/columns/',
-        files_url: 'archive/api/files/',
-        references_url: 'archive/api/references/',
-        tooltips: false,
-        checkboxes: true,
-        getter: {
-            id: service.get_id,
-            file_url: service.get_file_url
-        }
+    rows_url: 'archive/api/rows/',
+    columns_url: 'archive/api/columns/',
+    files_url: 'archive/api/files/',
+    references_url: 'archive/api/references/',
+    tooltips: false,
+    checkboxes: true,
+    getter: {
+    id: service.get_id,
+    file_url: service.get_file_url
+    }
     })"
 {% endblock %}
 
