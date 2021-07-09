@@ -1,32 +1,31 @@
 {% load i18n %}
 
-<ul class="pagination">
-    <li>
-        <a href="" ng-click="service.table.first()">
-            {% trans 'First' %}
-        </a>
-    </li>
-    <li>
-        <a href="" ng-click="service.table.previous()">
-            {% trans 'Previous' %}
-        </a>
-    </li>
-    <li>
-        <a href="" ng-click="service.table.next()">
-            {% trans 'Next' %}
-        </a>
-    </li>
-    <li>
-        <a href="" ng-click="service.table.last()">
-            {% trans 'Last' %}
-        </a>
-    </li>
-</ul>
-
-<ul class="pagination">
-    <li>
-        <a href="" ng-click="service.table.reset()">
-            {% trans 'Reset' %}
-        </a>
-    </li>
-</ul>
+<nav>
+    <ul class="pagination pull-right">
+        <li class="page-item">
+            <a class="page-link" href="" ng-click="service.table.first()">
+                {% trans 'First' %}
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="" ng-click="service.table.previous()">
+                {% trans 'Previous' %}
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="" ng-click="service.table.next()">
+                {% trans 'Next' %}
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="" ng-click="service.table.last()">
+                {% trans 'Last' %}
+            </a>
+        </li>
+        <li class="page-item ms-1">
+            <a class="page-link" href="" ng-click="service.table.reset()">
+                {% trans 'Reset' %}
+            </a>
+        </li>
+    </ul>
+</nav>

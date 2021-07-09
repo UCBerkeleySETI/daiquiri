@@ -14,17 +14,6 @@ from allauth.account.forms import LoginForm
 
 from rules.contrib.views import PermissionRequiredMixin as RulesPermissionRequiredMixin
 
-
-def home(request):
-    if not request.user.is_authenticated:
-        login_form = LoginForm()
-        login_form.fields['login'].widget.attrs.pop("autofocus", None)
-    else:
-        login_form = None
-
-    return render(request, 'core/home.html', {'form': login_form})
-
-
 def bad_request(request, exception):
     return render(request, 'core/400.html', status=400)
 

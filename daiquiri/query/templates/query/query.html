@@ -10,11 +10,11 @@
     {% vendor 'moment' %}
     {% vendor 'Bokeh' %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'core/css/browser.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'core/css/table.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'core/css/codemirror.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/browser.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/table.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/codemirror.css' %}" />
 
-    <link rel="stylesheet" type="text/css" href="{% static 'query/css/query.css' %}" />
+    <link rel="stylesheet" href="{% static 'query/css/query.css' %}" />
 
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/filter.js' %}" ></script>
@@ -59,23 +59,23 @@
                 <h2 class="daiquiri-query-job-title">{% trans 'Query job' %} `{$ service.job.table_name $}`</h2>
 
                 <ul class="nav nav-tabs daiquiri-query-job-tabs">
-                    <li role="presentation" ng-class="{active: service.tab == 'overview'}">
-                        <a href="" ng-click="service.activate_tab('overview')">
+                    <li class="nav-item active" ng-class="{active: service.tab == 'overview'}">
+                        <a class="nav-link" href="" ng-click="service.activate_tab('overview')">
                             {% trans 'Job overview' %}
                         </a>
                     </li>
-                    <li role="presentation" ng-class="{active: service.tab == 'results'}" ng-show="service.job.phase == 'COMPLETED'">
-                        <a href="" ng-click="service.activate_tab('results');">
+                    <li class="nav-item" ng-class="{active: service.tab == 'results'}" ng-show="service.job.phase == 'COMPLETED'">
+                        <a class="nav-link" href="" ng-click="service.activate_tab('results');">
                             {% trans 'Results table' %}
                         </a>
                     </li>
-                    <li role="presentation" ng-class="{active: service.tab == 'plot'}" ng-show="service.job.phase == 'COMPLETED'">
-                        <a href="" ng-click="service.activate_tab('plot');">
+                    <li class="nav-item" ng-class="{active: service.tab == 'plot'}" ng-show="service.job.phase == 'COMPLETED'">
+                        <a class="nav-link" href="" ng-click="service.activate_tab('plot');">
                             {% trans 'Plot' %}
                         </a>
                     </li>
-                    <li role="presentation" ng-class="{active: service.tab == 'download'}" ng-show="service.job.phase == 'COMPLETED'">
-                        <a href="" ng-click="service.activate_tab('download');">
+                    <li class="nav-item" ng-class="{active: service.tab == 'download'}" ng-show="service.job.phase == 'COMPLETED'">
+                        <a class="nav-link" href="" ng-click="service.activate_tab('download');">
                             {% trans 'Download' %}
                         </a>
                     </li>

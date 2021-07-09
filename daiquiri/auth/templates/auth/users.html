@@ -9,7 +9,7 @@
     {% vendor 'angular' %}
     {% vendor 'ng-infinite-scroll' %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'core/css/list.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/list.css' %}" />
 
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/list.js' %}" ></script>
@@ -79,10 +79,10 @@
                                 </div>
                             </td>
                             <td ng-class="{
-                                'text-success': row.user.is_active && !row.is_pending && !row.is_confirmed,
-                                'text-danger': !row.user.is_active,
-                                'text-info': row.is_pending || row.is_confirmed
-                            }">
+                                          'text-success': row.user.is_active && !row.is_pending && !row.is_confirmed,
+                                          'text-danger': !row.user.is_active,
+                                          'text-info': row.is_pending || row.is_confirmed
+                                          }">
                                 <span ng-show="row.user.is_superuser">
                                     {% trans 'superuser' %}
                                 </span>

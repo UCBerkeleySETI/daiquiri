@@ -4,7 +4,7 @@
     On this page, you can find an overview about a submitted query job. For a table view of the results, the plotting tool, and to access the download form, please use the tabs at the top of the page.
 </p>
 
-<div class="card" ng-show="service.job.query">
+<div class="card mb-3" ng-show="service.job.query">
     <div class="card-header">
         {% trans 'Query' %}
     </div>
@@ -20,12 +20,12 @@
     </div>
 </div>
 
-<div class="card">
+<div class="card mb-3">
     <div class="card-header">
         {% trans 'Job parameters' %}
     </div>
     <div class="card-body">
-        <dl class="dl-horizontal">
+        <dl class="query-overview">
             <dt>{% trans 'Job status' %}</dt>
             <dd ng-class="{
                           'text-success': service.job.phase == 'COMPLETED',
@@ -35,10 +35,8 @@
                 {$ (service.phases|filter: {'id': service.job.phase})[0].text $}
             </dd>
 
-            <div ng-show="service.job.phase == 'ERROR'">
-                <dt>{% trans 'Error' %}</dt>
-                <dd class="text-danger">{$ service.job.error_summary $}</dd>
-            </div>
+            <dt ng-show="service.job.phase == 'ERROR'">{% trans 'Error' %}</dt>
+            <dd ng-show="service.job.phase == 'ERROR'" class="text-danger">{$ service.job.error_summary $}</dd>
 
             <dt>{% trans 'Full database table name' %}</dt>
             <dd>{$ service.job.schema_name $}.{$ service.job.table_name $}</dd>
@@ -49,39 +47,29 @@
             <dt>{% trans 'Time submitted' %}</dt>
             <dd>{$ service.job.creation_time $}</dd>
 
-            <div ng-show="service.job.queue">
-                <dt>{% trans 'Queue' %}</dt>
-                <dd>{$ (service.queues|filter: {'id': service.job.queue})[0].text $}</dd>
-            </div>
+            <dt ng-show="service.job.queue">{% trans 'Queue' %}</dt>
+            <dd ng-show="service.job.queue">
+                {$ (service.queues|filter: {'id': service.job.queue})[0].text $}
+            </dd>
 
-            <div ng-show="service.job.start_time && service.job.creation_time">
-                <dt>{% trans 'Time in queue' %}</dt>
-                <dd>{$ service.job.time_queue $} s</dd>
-            </div>
+            <dt ng-show="service.job.start_time && service.job.creation_time">{% trans 'Time in queue' %}</dt>
+            <dd ng-show="service.job.start_time && service.job.creation_time">{$ service.job.time_queue $} s</dd>
 
-            <div ng-show="service.job.end_time && service.job.start_time">
-                <dt>{% trans 'Time for query' %}</dt>
-                <dd>{$ service.job.time_query $} s</dd>
-            </div>
+            <dt ng-show="service.job.end_time && service.job.start_time">{% trans 'Time for query' %}</dt>
+            <dd ng-show="service.job.end_time && service.job.start_time">{$ service.job.time_query $} s</dd>
 
-            <div ng-show="service.job.nrows != null">
-                <dt>{% trans 'Number of rows' %}</dt>
-                <dd>{$ service.job.nrows $}</dd>
-            </div>
+            <dt ng-show="service.job.nrows != null">{% trans 'Number of rows' %}</dt>
+            <dd ng-show="service.job.nrows != null">{$ service.job.nrows $}</dd>
 
-            <div ng-show="service.job.size != null">
-                <dt>{% trans 'Size of the table' %}</dt>
-                <dd>{$ service.job.size | bytes $}</dd>
-            </div>
+            <dt ng-show="service.job.size != null">{% trans 'Size of the table' %}</dt>
+            <dd ng-show="service.job.size != null">{$ service.job.size | bytes $}</dd>
 
-            <div ng-show="service.job.sources.length">
-                <dt>{% trans 'Source tables' %}</dt>
-                <dd ng-repeat="source in service.job.sources">
-                    <a href="{$ source.url $}" target="blank">
-                        {$ source.schema_name $}.{$ source.table_name $}
-                    </a>
-                </dd>
-            </div>
+            <dt ng-show="service.job.sources.length">{% trans 'Source tables' %}</dt>
+            <dd ng-show="service.job.sources.length" ng-repeat="source in service.job.sources">
+                <a href="{$ source.url $}" target="blank">
+                    {$ source.schema_name $}.{$ source.table_name $}
+                </a>
+            </dd>
         </dl>
     </div>
     <div class="card-footer">
@@ -103,7 +91,7 @@
     </div>
 </div>
 
-<div class="card" ng-show="service.job.native_query">
+<div class="card mb-3" ng-show="service.job.native_query">
     <div class="card-header">
         {% trans 'Native query' %}
     </div>

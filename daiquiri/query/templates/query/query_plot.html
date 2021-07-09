@@ -3,7 +3,7 @@
 <div class="row fieldset">
     <div class="col-md-5">
         <div class="form-group" ng-class="{'has-error': service.plot.errors.x }">
-            <label class="control-label" for="plot_x">{% trans 'X axis'%}</label>
+            <label class="col-form-label fw-bold" for="plot_x">{% trans 'X axis'%}</label>
 
             <select class="form-control" id="plot_x" ng-model="service.plot.values.x" ng-change="service.plot.errors.x = null">
                 <option value="">---</option>
@@ -29,7 +29,7 @@
     </div>
     <div class="col-md-5">
         <div class="form-group" ng-class="{'has-error': service.plot.errors.y }">
-            <label class="control-label" for="plot_y">{% trans 'Y axis'%}</label>
+            <label class="col-form-label fw-bold" for="plot_y">{% trans 'Y axis'%}</label>
 
             <select class="form-control" id="plot_y" ng-model="service.plot.values.y" ng-change="service.plot.errors.y = null">
                 <option value="">---</option>
