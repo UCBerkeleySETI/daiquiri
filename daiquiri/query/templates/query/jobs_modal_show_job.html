@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <div class="modal" id="show-job-modal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">
@@ -12,7 +12,7 @@
             </div>
 
             <div class="modal-body">
-                <dl class="dl-horizontal">
+                <dl class="job-overview">
                     <dt>{% trans 'Job status' %}</dt>
                     <dd ng-class="{
                                   'text-success': service.job.phase == 'COMPLETED',
@@ -22,10 +22,8 @@
                         {$ (service.phases|filter: {'id': service.job.phase})[0].text $}
                     </dd>
 
-                    <div ng-show="service.job.phase == 'ERROR'">
-                        <dt>{% trans 'Error' %}</dt>
-                        <dd class="text-danger">{$ service.job.error_summary $}</dd>
-                    </div>
+                    <dt ng-show="service.job.phase =='ERROR'">{% trans 'Error' %}</dt>
+                    <dd ng-show="service.job.phase =='ERROR'" class="text-danger">{$ service.job.error_summary $}</dd>
 
                     <div class="modal-separator"></div>
 
@@ -46,25 +44,17 @@
                     <dt>{% trans 'Queue' %}</dt>
                     <dd>{$ (service.queues|filter: {'id': service.job.queue})[0].text $}</dd>
 
-                    <div ng-show="service.job.start_time && service.job.creation_time">
-                        <dt>{% trans 'Time in queue' %}</dt>
-                        <dd>{$ service.job.time_queue $} s</dd>
-                    </div>
+                    <dt ng-show="service.job.start_time && service.job.creation_time">{% trans 'Time in queue' %}</dt>
+                    <dd ng-show="service.job.start_time && service.job.creation_time">{$ service.job.time_queue $} s</dd>
 
-                    <div ng-show="service.job.end_time && service.job.start_time">
-                        <dt>{% trans 'Time for query' %}</dt>
-                        <dd>{$ service.job.time_query $} s</dd>
-                    </div>
+                    <dt ng-show="service.job.end_time && service.job.start_time">{% trans 'Time for query' %}</dt>
+                    <dd ng-show="service.job.end_time && service.job.start_time">{$ service.job.time_query $} s</dd>
 
-                    <div ng-show="service.job.nrows != null">
-                        <dt>{% trans 'Number of rows' %}</dt>
-                        <dd>{$ service.job.nrows $}</dd>
-                    </div>
+                    <dt ng-show="service.job.nrows != null">{% trans 'Number of rows' %}</dt>
+                    <dd ng-show="service.job.nrows != null">{$ service.job.nrows $}</dd>
 
-                    <div ng-show="service.job.size != null">
-                        <dt>{% trans 'Size of the table' %}</dt>
-                        <dd>{$ service.job.size | bytes $}</dd>
-                    </div>
+                    <dt ng-show="service.job.size != null">{% trans 'Size of the table' %}</dt>
+                    <dd ng-show="service.job.size != null">{$ service.job.size | bytes $}</dd>
 
                     <div class="modal-separator"></div>
 

@@ -44,22 +44,18 @@
                         </button>
                     </div>
                 </form>
-                <div class="col-sm-6">
-                    <p class="count">
-                        {$ service.list.count $} {% trans 'jobs found' %}
-                    </p>
-                    <ul class="pagination pull-right">
-                        <li>
-                            <button class="btn btn-outline-secondary" type="button" ng-click="service.list.reset()">
-                                {% trans 'Reset' %}
-                            </button>
-                        </li>
-                    </ul>
+                <div class="col-auto mt-1">
+                    {$ service.list.count $} {% trans 'jobs found' %}
+                </div>
+                <div class="col-auto ms-auto">
+                    <button class="btn btn-outline-secondary" type="button" ng-click="service.list.reset()">
+                        {% trans 'Reset' %}
+                    </button>
                 </div>
                 <div class="col-sm-12">
-                    <strong>{% trans 'Filter phases' %}:</strong>
+                    <strong class="pe-1">{% trans 'Filter phases' %}:</strong>
                     <div class="form-check form-check-inline" ng-repeat="phase in service.phases">
-                        <input class="form-check-input"
+                        <input class="float-none form-check-input"
                                type="checkbox"
                                ng-model="service.selected[phase.id]"
                                ng-change="service.reload();"
