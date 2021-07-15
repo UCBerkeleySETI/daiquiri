@@ -3,7 +3,7 @@
 
 {% block page %}
 
-    <h1 class="hide-overflow">
+    <h1 class="hide-overflow mb-4">
         {% if schema.title %}
             {{ schema.title }} ({{ schema }})
         {% else %}
@@ -45,7 +45,9 @@
                 </h4>
 
                 {% if table.description %}
-                    {{ table.description }}
+                    <p class="mb-3">
+                        {{ table.description }}
+                    </p>
                 {% endif %}
             </li>
         {% endfor %}

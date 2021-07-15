@@ -43,9 +43,8 @@
             <thead>
                 <th style="width: 15%;">{% trans 'Name' %}</th>
                 <th style="width: 15%;">{% trans 'Type' %}</th>
-                <th style="width: 15%;">{% trans 'UCD' %}</th>
                 <th style="width: 15%;">{% trans 'Unit' %}</th>
-                <th style="width: 40%;">{% trans 'Description' %}</th>
+                <th style="width: 55%;">{% trans 'Description' %}</th>
             </thead>
             <tbody>
                 {% for column in table.columns.all %}
@@ -55,9 +54,6 @@
                         </td>
                         <td>
                             {{ column.datatype }}
-                        </td>
-                        <td>
-                            {{ column.ucd|default_if_none:''|semicolonbr }}
                         </td>
                         <td>
                             {{ column.unit|default_if_none:'' }}

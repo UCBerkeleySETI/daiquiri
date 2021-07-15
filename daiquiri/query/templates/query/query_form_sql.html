@@ -8,7 +8,7 @@
 
 <p>
     {% blocktrans %}
-        Optionally, you can specify the name of the resulting database table and/or assign a run id, to group associated queries in the job list. Please choose a queue with a suitable timeout for your query.
+        Optionally, you can specify the name of the resulting database table and/or assign a run id, to group associated queries in the job list.
     {% endblocktrans %}
 </p>
 
@@ -28,7 +28,7 @@
 </div>
 
 <formgroup
-    class="row mt-3"
+    class="row pt-5"
     data-type="codemirror"
     data-label="{% trans 'SQL query' %}"
     data-model="service.forms.sql.values.query"
@@ -38,7 +38,7 @@
 
 <div class="row mt-2 mb-3">
     <formgroup
-        class="col-md-4"
+        class="col-md-4 ps-0"
         data-type="text"
         data-label="{% trans 'Results table name' %}"
         data-model="service.forms.sql.values.table_name"
@@ -54,13 +54,16 @@
 </div>
 
 <div class="row">
-    <button type="button" class="btn btn-primary text-nowrap col-md-2" ng-click="service.forms.sql.submit()">
-        {% trans 'Submit query' %} <submitting />
-    </button>
-
-    <button type="button" class="btn btn-outline-secondary text-nowrap col-md-2 ms-auto" ng-click="service.forms.sql.clear_query()">
-        {% trans 'Clear input window' %}
-    </button>
+    <div class="col-auto ps-0">
+        <button type="button" class="btn btn-primary" ng-click="service.forms.sql.submit()">
+            {% trans 'Submit query' %} <submitting />
+        </button>
+    </div>
+    <div class="col-auto ms-auto">
+        <button type="button" class="btn btn-outline-secondary" ng-click="service.forms.sql.clear_query()">
+            {% trans 'Clear input window' %}
+        </button>
+    </div>
 </div>
 
 <p class="text-danger" ng-show="service.forms.sql.errors.detail">

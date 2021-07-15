@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" href="{% static 'core/css/list.css' %}" />
     <link rel="stylesheet" href="{% static 'core/css/codemirror.css' %}" />
-    <link rel="stylesheet" href="{% static 'query/css/jobs.css' %}" />
 
     <script type="text/javascript" src="{% static 'core/js/core.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/list.js' %}" ></script>
@@ -40,9 +39,9 @@
                                id="table-pager-search-input"
                                placeholder="{% trans 'Search jobs' %}"
                                type="text" ng-model="service.list.search_string">
-                        <a href="" class="input-group-addon" ng-click="service.list.search()">
+                        <button class="btn btn-outline-secondary" type="button" ng-click="service.list.search()">
                             <span class="fa fa-search"></span>
-                        </a>
+                        </button>
                     </div>
                 </form>
                 <div class="col-sm-6">
@@ -51,17 +50,21 @@
                     </p>
                     <ul class="pagination pull-right">
                         <li>
-                            <a href="" ng-click="service.list.reset()">{% trans 'Reset' %}</a>
+                            <button class="btn btn-outline-secondary" type="button" ng-click="service.list.reset()">
+                                {% trans 'Reset' %}
+                            </button>
                         </li>
                     </ul>
                 </div>
                 <div class="col-sm-12">
-                    <div class="daiquiri-query-jobs-phases">
-                        <strong>{% trans 'Filter phases' %}:</strong>
-                        <label ng-repeat="phase in service.phases">
-                            <input type="checkbox" autocomplete="off"
-                                   ng-model="service.selected[phase.id]"
-                                   ng-change="service.reload();">
+                    <strong>{% trans 'Filter phases' %}:</strong>
+                    <div class="form-check form-check-inline" ng-repeat="phase in service.phases">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               ng-model="service.selected[phase.id]"
+                               ng-change="service.reload();"
+                               id="jobPhaseCheck{$ phase.id $}">
+                        <label class="form-check-label" for="jobPhaseCheck{$ phase.id $}">
                             {$ phase.text $}
                         </label>
                     </div>

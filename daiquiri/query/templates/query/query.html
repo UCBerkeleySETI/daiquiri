@@ -7,7 +7,6 @@
     {% vendor 'angular' %}
     {% vendor 'ng-infinite-scroll' %}
     {% vendor 'codemirror' %}
-    {% vendor 'moment' %}
     {% vendor 'Bokeh' %}
 
     <link rel="stylesheet" href="{% static 'core/css/browser.css' %}" />
@@ -56,26 +55,26 @@
 
             <div ng-show="service.job">
 
-                <h2 class="daiquiri-query-job-title">{% trans 'Query job' %} `{$ service.job.table_name $}`</h2>
+                <h2 class="daiquiri-query-job-title">{% trans 'Query job' %} <span class="fst-italic">{$ service.job.table_name $}</span></h2>
 
                 <ul class="nav nav-tabs daiquiri-query-job-tabs">
                     <li class="nav-item active" ng-class="{active: service.tab == 'overview'}">
-                        <a class="nav-link" href="" ng-click="service.activate_tab('overview')">
+                        <a class="nav-link" href="" ng-class="{disabled: service.tab == 'overview'}" ng-click="service.activate_tab('overview')">
                             {% trans 'Job overview' %}
                         </a>
                     </li>
                     <li class="nav-item" ng-class="{active: service.tab == 'results'}" ng-show="service.job.phase == 'COMPLETED'">
-                        <a class="nav-link" href="" ng-click="service.activate_tab('results');">
+                        <a class="nav-link" href="" ng-class="{disabled: service.tab == 'results'}" ng-click="service.activate_tab('results');">
                             {% trans 'Results table' %}
                         </a>
                     </li>
                     <li class="nav-item" ng-class="{active: service.tab == 'plot'}" ng-show="service.job.phase == 'COMPLETED'">
-                        <a class="nav-link" href="" ng-click="service.activate_tab('plot');">
+                        <a class="nav-link" href="" ng-class="{disabled: service.tab == 'plot'}" ng-click="service.activate_tab('plot');">
                             {% trans 'Plot' %}
                         </a>
                     </li>
                     <li class="nav-item" ng-class="{active: service.tab == 'download'}" ng-show="service.job.phase == 'COMPLETED'">
-                        <a class="nav-link" href="" ng-click="service.activate_tab('download');">
+                        <a class="nav-link" href="" ng-class="{disabled: service.tab == 'download'}" ng-click="service.activate_tab('download');">
                             {% trans 'Download' %}
                         </a>
                     </li>
