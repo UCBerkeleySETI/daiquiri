@@ -2,7 +2,7 @@ import re
 
 from setuptools import setup, find_packages
 
-# get metadata from mudule using a regexp
+# get metadata from module using a regexp
 with open('daiquiri/__init__.py') as f:
     metadata = dict(re.findall(r'__(.*)__ = [\']([^\']*)[\']', f.read()))
 
