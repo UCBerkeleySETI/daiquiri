@@ -2,12 +2,10 @@
 <html {% block htmlargs %}{% endblock %}>
     <head>
         {% include 'core/base_head.html' %}
-        {% block headextra %}{% endblock headextra%}
+        {% block headextra %}{% endblock headextra %}
     </head>
     <body {% block bodyargs %}{% endblock %}>
         {% include 'core/base_navigation.html' %}
-        {% block precontent %}{% endblock precontent %}
         {% block content %}{% endblock content %}
-        {% block postcontent %}{% endblock postcontent %}
     </body>
 </html>

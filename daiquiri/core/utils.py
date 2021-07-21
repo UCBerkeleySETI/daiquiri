@@ -33,12 +33,6 @@ from daiquiri.core.constants import (
     ACCESS_LEVEL_PUBLIC
 )
 
-if sys.version_info.major >= 3:
-    long_type = int
-else:
-    long_type = long
-
-
 def import_class(string):
     module_name, class_name = string.rsplit('.', 1)
     return getattr(importlib.import_module(module_name), class_name)
@@ -238,7 +232,7 @@ def fix_for_json(elements):
             elements_list[i] = None
 
         # convert a long fields to a strings
-        elif isinstance(elements_list[i], long_type) and elements_list[i] > 9007199254740991:
+        elif isinstance(elements_list[i], int) and elements_list[i] > 9007199254740991:
             elements_list[i] = str(elements_list[i])
 
     return elements_list
@@ -343,10 +337,7 @@ def render_to_xlsx(request, filename, columns, rows):
             elif isinstance(cell, datetime):
                 worksheet.write(i + 1, j, localtime(cell).strftime("%Y-%m-%d %H:%M:%S"))
             else:
-                try:
-                    worksheet.write(i + 1, j, unicode(cell))
-                except NameError:
-                    worksheet.write(i + 1, j, str(cell))
+                worksheet.write(i + 1, j, str(cell))
 
     workbook.close()
 

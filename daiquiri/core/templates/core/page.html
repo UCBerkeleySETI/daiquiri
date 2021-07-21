@@ -1,16 +1,14 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-
     <main class="container">
         <div class="row">
-            <section class="page col-md-9">
+            <section class="col-md-9">
                 {% block page %}{% endblock %}
             </section>
-            <aside class="sidebar col-md-3">
+            <aside class="col-md-3">
                 {% block sidebar %}{% endblock %}
             </aside>
         </div>
     </main>
-
 {% endblock %}
