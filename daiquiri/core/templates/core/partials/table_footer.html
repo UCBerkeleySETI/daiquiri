@@ -17,8 +17,8 @@
     <div class="col-sm-4 daiquiri-table-page-size" ng-show="service.table.page_sizes.length > 1">
         <select class="form-control" ng-model="service.table.params.page_size" ng-change="service.table.fetch()" by-number>
             <option value="{$ value $}" ng-repeat="value in service.table.page_sizes">
-                {% blocktrans with value='{$ value $}' count='{$ service.count $}' trimmed %}
-                    Show {{ value }} of {{ count }} rows
+                {% blocktrans with value='{$ value $}' trimmed %}
+                    Show {{ value }} rows
                 {% endblocktrans %}
             </option>
         </select>
