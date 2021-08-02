@@ -4,10 +4,11 @@
 {% block page %}
 
     <h1 class="hide-overflow">
+        {% url 'metadata:schema' table.schema.name as schema_url %}
         {% if table.title %}
-            {{ table.title }} ({{ table }})
+            {{ table.title }} (<a href="{{ schema_url }}">{{ table.schema.name }}</a>.{{ table.name }})
         {% else %}
-            {{ table }}
+            <a href="{{ schema_url }}">{{ table.schema.name }}</a>.{{ table.name }}
         {% endif %}
     </h1>
 
