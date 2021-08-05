@@ -1,7 +1,7 @@
 {% extends 'core/wide.html' %}
 {% load i18n static vendor_tags %}
 
-{% block bodyargs %}ng-app="examples" ng-controller="ExamplesController"{% endblock %}
+{% block bodyargs %}ng-app="examples" ng-controller="ExamplesController"{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -21,7 +21,7 @@
 
     <script type="text/javascript" src="{% static 'query/js/apps/examples.js' %}" ></script>
     <script type="text/javascript" src="{% static 'query/js/services/examples.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -101,4 +101,4 @@
     {% include 'query/examples_modal_form.html' %}
     {% include 'query/examples_modal_delete.html' %}
 
-{% endblock %}
+{% endblock wide %}

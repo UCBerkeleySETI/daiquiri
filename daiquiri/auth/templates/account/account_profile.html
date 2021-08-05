@@ -9,7 +9,7 @@
         {% url 'account_change_password' as password_url %}
         {% url 'account_email' as email_url %}
         {% blocktrans trimmed %}
-            Please enter your updated account information. You can change your password using the <a href="{{ password_url }}">password form</a> and update your e-mail using the <a href="{{ email_url }}">e-mail form</a>.
+            Please enter your updated account information. You can change your password using the <a href="{{ password_url }}">password form</a> and update your email using the <a href="{{ email_url }}">email form</a>.
         {% endblocktrans %}
     </p>
 
@@ -25,4 +25,4 @@
         </button>
     </form>
 
-{% endblock %}
+{% endblock page %}

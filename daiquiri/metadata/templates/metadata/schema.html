@@ -12,20 +12,15 @@
     </h1>
 
     {% if schema.long_description %}
-
         <h2>Description</h2>
         <p>{{ schema.long_description | markdown }}</p>
-
     {% elif schema.description %}
-
         <h2>Description</h2>
         <p>{{ schema.description | markdown }}</p>
-
     {% endif %}
 
     {% if schema.attribution %}
         <h2>Attribution</h2>
-
         {{ schema.attribution | markdown }}
     {% endif %}
 
@@ -53,7 +48,7 @@
         {% endfor %}
     </ul>
 
-{% endblock %}
+{% endblock page %}
 
 {% block sidebar %}
 
@@ -67,4 +62,4 @@
         {% license_panel schema.license %}
     {% endif %}
 
-{% endblock %}
+{% endblock sidebar %}

@@ -87,7 +87,7 @@ class AccountsTestCase(TestCase):
         # check that the signup returns 200 (with validation error)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '* A user with that username already exists.')
-        self.assertContains(response, '* A user is already registered with this e-mail address.')
+        self.assertContains(response, '* A user is already registered with this email address.')
 
         # check that a profile was not created
         exists = Profile.objects.filter(user__username='testing').exists()

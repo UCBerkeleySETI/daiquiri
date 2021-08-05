@@ -1,9 +1,7 @@
 {% extends 'core/wide.html' %}
-{% load static %}
-{% load i18n %}
-{% load vendor_tags %}
+{% load static i18n vendor_tags %}
 
-{% block bodyargs %}ng-app="users" ng-controller="UsersController"{% endblock %}
+{% block bodyargs %}ng-app="users" ng-controller="UsersController"{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -18,7 +16,7 @@
     <script type="text/javascript" src="{% static 'core/js/byNumber.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/formgroup.js' %}" ></script>
     <script type="text/javascript" src="{% static 'auth/js/users.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -125,4 +123,4 @@
     {% include 'auth/users_modal_reject_user.html' %}
     {% include 'auth/users_modal_activate_user.html' %}
 
-{% endblock %}
+{% endblock wide %}

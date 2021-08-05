@@ -1,9 +1,9 @@
 {% extends 'core/wide.html' %}
 {% load i18n static %}
 
-{% block htmlargs %}version="XHTML+RDFa 1.1" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"{% endblock %}
+{% block htmlargs %}version="XHTML+RDFa 1.1" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"{% endblock htmlargs %}
 
-{% block bodyargs %}vocab="ivo://ivoa.net/std/DALI-examples"{% endblock %}
+{% block bodyargs %}vocab="ivo://ivoa.net/std/DALI-examples"{% endblock bodyargs %}
 
 {% block wide %}
 
@@ -17,4 +17,4 @@
         </div>
     {% endfor %}
 
-{% endblock %}
+{% endblock wide %}

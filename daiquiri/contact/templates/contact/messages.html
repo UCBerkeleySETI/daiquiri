@@ -1,7 +1,7 @@
 {% extends 'core/wide.html' %}
 {% load i18n static vendor_tags %}
 
-{% block bodyargs %}ng-app="messages" ng-controller="MessagesController"{% endblock %}
+{% block bodyargs %}ng-app="messages" ng-controller="MessagesController"{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="{% static 'core/js/formgroup.js' %}" ></script>
 
     <script type="text/javascript" src="{% static 'contact/js/messages.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -114,4 +114,4 @@
 
     {% include 'contact/messages_modal_show.html' %}
 
-{% endblock %}
+{% endblock wide %}

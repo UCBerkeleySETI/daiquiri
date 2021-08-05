@@ -4,7 +4,7 @@
 {% block bodyargs %}
     ng-app="jobs"
     ng-controller="JobsController"
-{% endblock %}
+{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -23,7 +23,7 @@
 
     <script type="text/javascript" src="{% static 'query/js/apps/jobs.js' %}" ></script>
     <script type="text/javascript" src="{% static 'query/js/services/jobs.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -122,4 +122,4 @@
     {% include 'query/query_modal_abort_job.html' %}
     {% include 'query/query_modal_archive_job.html' %}
 
-{% endblock %}
+{% endblock wide %}

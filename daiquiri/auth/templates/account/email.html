@@ -3,12 +3,12 @@
 
 {% block page %}
 
-    <h1>{% trans "E-mail Addresses" %}</h1>
+    <h1>{% trans "Email Addresses" %}</h1>
 
     {% if user.emailaddress_set.all %}
 
         <p>
-            {% trans 'E-mail addresses associated with your account:' %}
+            {% trans 'Email addresses associated with your account:' %}
         </p>
 
         <form action="{% url 'account_email' %}" method="post">
@@ -51,19 +51,19 @@
     {% else %}
 
         <p>
-            <strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc." %}
+            <strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any email addresses set up. Add an email address to receive notifications, reset your password, etc." %}
         </p>
 
     {% endif %}
 
-    <h2>{% trans "Add E-mail Address" %}</h2>
+    <h2>{% trans "Add Email Address" %}</h2>
 
     <form method="post" action="{% url 'account_email' %}">
         {% csrf_token %}
 
         {% include 'core/partials/form_fields.html' %}
 
-        <button class="btn btn-primary" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+        <button class="btn btn-primary" name="action_add" type="submit">{% trans "Add Email" %}</button>
     </form>
 
-{% endblock %}
+{% endblock page %}

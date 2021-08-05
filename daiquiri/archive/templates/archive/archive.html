@@ -1,7 +1,5 @@
 {% extends 'core/wide.html' %}
-{% load static %}
-{% load i18n %}
-{% load vendor_tags %}
+{% load static i18n vendor_tags %}
 
 {% block bodyargs %}
     ng-app="archive"
@@ -18,7 +16,7 @@
     file_url: service.get_file_url
     }
     })"
-{% endblock %}
+{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -32,7 +30,7 @@
     <script type="text/javascript" src="{% static 'core/js/table.js' %}" ></script>
     <script type="text/javascript" src="{% static 'core/js/polling.js' %}" ></script>
     <script type="text/javascript" src="{% static 'archive/js/archive.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -79,4 +77,4 @@
 
     {% include 'core/partials/table_modal.html' %}
 
-{% endblock %}
+{% endblock wide %}

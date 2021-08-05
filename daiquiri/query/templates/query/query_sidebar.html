@@ -49,16 +49,14 @@
         </div>
         <ul class="list-group list-group-flush">
             {% for form in settings.QUERY_FORMS %}
-
-            <a href=""
-               class="list-group-item-action"
-               ng-click="service.forms['{{ form.key }}'].activate()"
-               ng-class="{active: service.form == '{{ form.key }}'}">
-                <li class="list-group-item">
-                    {{ form.label }}
-                </li>
-            </a>
-
+                <a href=""
+                    class="list-group-item-action"
+                    ng-click="service.forms['{{ form.key }}'].activate()"
+                    ng-class="{active: service.form == '{{ form.key }}'}">
+                        <li class="list-group-item">
+                            {{ form.label }}
+                        </li>
+                </a>
             {% endfor %}
         </ul>
     </div>
@@ -115,11 +113,11 @@
         </ul>
 
         {% if user.is_authenticated %}
-        <div class="card-footer">
-            <a href="{% url 'query:jobs' %}" target="_blank">
-                {% trans 'View verbose job list' %}
-            </a>
-        </div>
+            <div class="card-footer">
+                <a href="{% url 'query:jobs' %}" target="_blank">
+                    {% trans 'View verbose job list' %}
+                </a>
+            </div>
         {% endif %}
     </div>
 </div>

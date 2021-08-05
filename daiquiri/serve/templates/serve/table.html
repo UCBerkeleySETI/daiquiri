@@ -13,7 +13,7 @@
     table: '{{ table }}'
     }
     })"
-{% endblock %}
+{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="{% static 'core/js/table.js' %}" ></script>
 
     <script type="text/javascript" src="{% static 'serve/js/table.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -35,4 +35,4 @@
 
     {% include 'core/partials/table.html' %}
 
-{% endblock %}
+{% endblock wide %}

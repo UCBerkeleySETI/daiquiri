@@ -1,7 +1,7 @@
 {% extends 'core/wide.html' %}
 {% load i18n static vendor_tags %}
 
-{% block bodyargs %}ng-app="metadata" ng-controller="MetadataController"{% endblock %}
+{% block bodyargs %}ng-app="metadata" ng-controller="MetadataController"{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -20,7 +20,7 @@
     <script type="text/javascript" src="{% static 'core/js/browser.js' %}" ></script>
 
     <script type="text/javascript" src="{% static 'metadata/js/metadata.js' %}" ></script>
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -70,4 +70,4 @@
     {% include 'metadata/management_modal_delete_columns.html' %}
     {% include 'metadata/management_modal_delete_functions.html' %}
 
-{% endblock %}
+{% endblock wide %}

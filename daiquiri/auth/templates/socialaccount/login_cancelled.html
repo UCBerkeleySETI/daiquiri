@@ -1,8 +1,5 @@
 {% extends 'core/page.html' %}
-{% load i18n %}
-{% load account %}
-{% load socialaccount %}
-{% load core_tags %}
+{% load i18n account socialaccount core_tags %}
 
 {% block page %}
 
@@ -14,4 +11,4 @@
     {% blocktrans %}You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to <a href="{{login_url}}">sign in</a>.{% endblocktrans %}
 </p>
 
-{% endblock %}
+{% endblock page %}

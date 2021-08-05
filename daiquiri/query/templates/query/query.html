@@ -1,7 +1,7 @@
 {% extends 'core/wide.html' %}
 {% load i18n static vendor_tags %}
 
-{% block bodyargs %}ng-app="query" ng-controller="QueryController"{% endblock %}
+{% block bodyargs %}ng-app="query" ng-controller="QueryController"{% endblock bodyargs %}
 
 {% block headextra %}
     {% vendor 'angular' %}
@@ -36,7 +36,7 @@
     {% for form in settings.QUERY_FORMS %}
         <script type="text/javascript" src="{% static form.service %}" ></script>
     {% endfor %}
-{% endblock %}
+{% endblock headextra %}
 
 {% block wide %}
 
@@ -102,4 +102,4 @@
     {% include 'query/query_modal_abort_job.html' %}
     {% include 'query/query_modal_archive_job.html' %}
 
-{% endblock %}
+{% endblock wide %}
