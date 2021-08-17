@@ -46,14 +46,14 @@
                     <p class="count">
                         {$ service.list.count $} {% trans 'examples found' %}
                     </p>
-                    <ul class="pagination pull-right">
+                    <ul class="pagination float-end">
                         <li>
                             <button class="btn btn-outline-secondary" type="button" ng-click="service.list.reset()">
                                 {% trans 'Reset' %}
                             </button>
                         </li>
                     </ul>
-                    <ul class="pagination pull-right">
+                    <ul class="pagination float-end">
                         <li>
                             <button class="btn btn-outline-secondary" type="button" ng-click="service.modal('examples-modal-form', $index)">
                                 {% trans 'Create new' %}
