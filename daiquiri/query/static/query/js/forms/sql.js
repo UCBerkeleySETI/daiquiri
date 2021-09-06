@@ -78,6 +78,12 @@ app.factory('SqlFormService', ['$timeout', '$filter', 'QueryService', 'BrowserSe
 
     service.clear_query = function(string) {
         service.values.query = '';
+        // reset markers and errors
+        angular.forEach(service.markers, function(marker) {
+            marker.clear();
+        });
+        service.markers = [];
+        service.errors = {};
         $('.CodeMirror')[0].CodeMirror.focus();
     };
 
