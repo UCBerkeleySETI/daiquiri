@@ -49,11 +49,7 @@ def get_database(key):
     if database_string:
         database_type = urlparse(database_string).scheme
 
-        # rewrite mariadb since it is not supported by dj_database_url
-        if database_type == 'mariadb':
-            database_string = database_string.replace('mariadb://', 'mysql://')
-
-        database_config = dj_database_url.parse(database_string)
+        database_config = dj_database_url.parse(database_string, ssl_require=True)
 
         # patch bug in dj_database_url
         if database_type in ['postgres', 'postgresql', 'pgsql']:

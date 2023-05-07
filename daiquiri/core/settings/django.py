@@ -40,19 +40,13 @@ DATABASES = {
     'oai': env.get_database('data'),
 }
 
-if DATABASES['tap'].get('ENGINE') == 'django.db.backends.postgresql':
-    DATABASES['tap']['OPTIONS'] = {
-        'options': '-c search_path=%s' % env.get('TAP_SCHEMA', 'tap_schema')
-    }
-elif DATABASES['tap'].get('ENGINE') == 'django.db.backends.mysql':
-    DATABASES['tap']['NAME'] = env.get('TAP_SCHEMA', 'tap_schema')
+DATABASES['tap']['OPTIONS'] = {
+    'options': '-c search_path=%s' % env.get('TAP_SCHEMA', 'tap_schema')
+}
 
-if DATABASES['oai'].get('ENGINE') == 'django.db.backends.postgresql':
-    DATABASES['oai']['OPTIONS'] = {
-        'options': '-c search_path=%s' % env.get('OAI_SCHEMA', 'oai_schema')
-    }
-elif DATABASES['oai'].get('ENGINE') == 'django.db.backends.mysql':
-    DATABASES['oai']['NAME'] = env.get('OAI_SCHEMA', 'oai_schema')
+DATABASES['oai']['OPTIONS'] = {
+    'options': '-c search_path=%s' % env.get('OAI_SCHEMA', 'oai_schema')
+}
 
 ADAPTER_DATABASE = env.get_database_adapter()
 ADAPTER_DOWNLOAD = env.get_download_adapter()

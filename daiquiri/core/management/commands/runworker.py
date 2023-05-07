@@ -17,8 +17,9 @@ class Command(BaseCommand):
         hostname = '%s_%s@%%h' % (settings.DAIQUIRI_APP, options['queue'])
 
         args = [
-            'celery', 'worker',
+            'celery',
             '-A', 'config',
+            'worker',
             '-Q', queue,
             '-c', concurrency,
             '-n', hostname,
