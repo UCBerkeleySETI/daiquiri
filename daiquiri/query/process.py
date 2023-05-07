@@ -6,7 +6,7 @@ from daiquiri.core.utils import filter_by_access_level
 from daiquiri.metadata.models import Column, Function, Schema, Table
 from django.conf import settings
 from django.core.cache import cache
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from queryparser.adql import ADQLQueryTranslator
 from queryparser.exceptions import QueryError, QuerySyntaxError
 from rest_framework.exceptions import ValidationError

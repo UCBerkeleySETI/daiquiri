@@ -7,7 +7,7 @@ from celery import shared_task
 from django.conf import settings
 from django.db.utils import OperationalError, ProgrammingError, InternalError
 from django.utils.timezone import now
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from daiquiri.core.tasks import Task
 

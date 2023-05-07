@@ -7,7 +7,7 @@ from astropy.io.votable import parse_single_table
 
 from django.conf import settings
 from django.utils.timezone import now
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from daiquiri.core.adapter import DatabaseAdapter
 from daiquiri.core.utils import human2bytes, handle_file_upload

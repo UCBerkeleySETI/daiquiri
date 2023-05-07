@@ -3,14 +3,14 @@ import os
 
 from collections import OrderedDict
 
-from celery.task.control import revoke
+from celery.app.control import Control
 
 from django.conf import settings
 from django.contrib.auth.models import Group
 from django.db import models
 from django.db.utils import OperationalError, ProgrammingError, InternalError, DataError
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.utils.timezone import now
 
 from rest_framework.exceptions import ValidationError
@@ -291,7 +291,7 @@ class QueryJob(Job):
     def abort(self):
         if settings.ASYNC:
             # first, revoke the task in celery, regardless the phase
-            revoke(str(self.id))
+            Control().revoke(str(self.id))
 
         current_phase = self.phase
 

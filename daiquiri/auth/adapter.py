@@ -1,8 +1,9 @@
 import logging
 
 from django.conf import settings
-from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.utils.http import url_has_allowed_host_and_scheme
 
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
@@ -14,8 +15,7 @@ logger = logging.getLogger(__name__)
 class DaiquiriAccountAdapter(DefaultAccountAdapter):
 
     def is_safe_url(self, url):
-        from django.utils.http import is_safe_url
-        return is_safe_url(url, allowed_hosts=settings.ALLOWED_HOSTS)
+        return url_has_allowed_host_and_scheme(url, allowed_hosts=settings.ALLOWED_HOSTS)
 
     def save_user(self, request, user, form, commit=True):
         super(DaiquiriAccountAdapter, self).save_user(request, user, form)

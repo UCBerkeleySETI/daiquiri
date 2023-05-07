@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 import daiquiri.core.env as env
 from daiquiri.core.constants import ACCESS_LEVEL_CHOICES
 
