@@ -49,7 +49,7 @@ def get_database(key):
     if database_string:
         database_type = urlparse(database_string).scheme
 
-        database_config = dj_database_url.parse(database_string, ssl_require=True)
+        database_config = dj_database_url.parse(database_string, ssl_require=(not get_bool('DEBUG')))
 
         # patch bug in dj_database_url
         if database_type in ['postgres', 'postgresql', 'pgsql']:
